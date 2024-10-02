@@ -53,14 +53,19 @@
     <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
 
     <% if (isLocal) { %>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'unsafe-inline' 'unsafe-eval' https: localhost:* http://10.142.128.134:8081/js/app.js"
+    />
     <script type="systemjs-importmap">
       {
         "imports": {
           "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
           "@icapitalnetwork/root-config": "//localhost:9000/icapitalnetwork-root-config.js",
-          "@icapitalnetwork/catalog": "//localhost:8500/icapitalnetwork-catalog.js",
+          "@icapitalnetwork/catalog": "//localhost:8082/icapitalnetwork-catalog.js",
           "@icapitalnetwork/management": "//localhost:8080/js/app.js",
-          "@icapitalnetwork/navigation": "//localhost:8600/icapitalnetwork-navigation.js"
+          "@icapitalnetwork/navigation": "//localhost:8081/icapitalnetwork-navigation.js",
+          "@icapitalnetwork/ricardocarmo": "http://10.142.128.134:8081/js/app.js"
         }
       }
     </script>
